@@ -122,6 +122,7 @@ For more information on reducers, refer to the Redux docs:
 
 ### Setup
 
+- [ ] Go to the Chrome Web Store and download/install Redux DevTools
 - [ ] Run `npm install` to install all the dependencies. 
 - [ ] Run `npm start` to start your Webpack Development Server, and navigate to `http://localhost:8081`. 
 
@@ -150,6 +151,8 @@ And it should have the following functionality:
 2. If you click on Add Card on a given MarketDisplay card, you should see the Cards and % of total update.  You should also see Total Cards increment by one.
 
 3. If you click on Delete Card on a given MarketDisplay card, you should see the Cards and % of total update.  You should also see Total Cards decrement by one.
+
+4. Inspect your page and go to the Redux tab.  Watch the state updates in the Devtools as you add and remove cards.
 
 ### Extensions
 
