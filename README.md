@@ -124,7 +124,7 @@ For more information on reducers, refer to the Redux docs:
 
 - [ ] Go to the Chrome Web Store and download/install Redux DevTools
 - [ ] Run `npm install` to install all the dependencies. 
-- [ ] Run `npm start` to start your Webpack Development Server, and navigate to `http://localhost:8081`. 
+- [ ] Run `npm start` to start your Webpack Development Server, and navigate to `http://localhost:8080`. 
 
 ### Challenges
 
