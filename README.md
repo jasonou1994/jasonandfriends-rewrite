@@ -139,6 +139,9 @@ In your skill builder, you created a personal loyalty card tracker.  For this un
               |—- MarketDisplay      
 ````
 
+Your app should look something like this... 
+
+![MegaMarketApp](https://github.com/CodesmithLLC/unit-7-react-redux/blob/master/MegaMarketApp.png)
 
 And it should have the following functionality: 
 
