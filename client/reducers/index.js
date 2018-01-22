@@ -12,13 +12,12 @@
 import { combineReducers } from 'redux';
 
 // import all reducers here
-import cardsReducer from './cardsReducer';
 import marketsReducer from './marketsReducer';
 
 
 // combine reducers
 const reducers = combineReducers({
-  cards: cardsReducer,
+  // if we had other reducers, they would go here
   markets: marketsReducer,
 });
 
