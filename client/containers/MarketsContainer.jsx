@@ -34,7 +34,7 @@ class MarketsContainer extends Component {
         { /* add components here... */ }
       </div>
     );
-
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MarketsContainer);
