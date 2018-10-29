@@ -1,0 +1,83 @@
+australia_rocks.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+az_antelope1.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+az_antelope2.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+az_bigbend.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40|
+az_whitepocket.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+az_wildflowers.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+china_drowning.jpg|featured,wildlife|12x18:$20,18x24:$30,24x36:$40
+china_heaven.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+china_huangshansunrise.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+china_huangshansunrise2.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+china_lotus.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+cuba_driver.jpg|featured,cities & culture,portraits|12x18:$20,18x24:$30,24x36:$40
+cuba_manindoor.jpg|featured,cities & culture,portraits|12x18:$20,18x24:$30,24x36:$40
+cuba_square.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+iceland_bridge.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+iceland_horses.jpg|featured,wildlife|12x18:$20,18x24:$30,24x36:$40
+iceland_plane.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+iceland_tammyandkunal.jpg|featured,portraits|12x18:$20,18x24:$30,24x36:$40
+iceland_tammyinplane.jpg|featured,portraits|12x18:$20,18x24:$30,24x36:$40
+iceland_threeholeglacier.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+iceland_tourists.jpg|featured,landscapes,portraits|12x18:$20,18x24:$30,24x36:$40
+iceland_wave.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+japan_bulbs.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+japan_fushimi.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+japan_jellyfish.jpg|featured,wildlife,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+japan_smokymarket.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+japan_umbrella.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+mex_cabana.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+mex_dancers.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+mex_fisherwomen.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+mex_greenmacau.jpg|featured,wildlife|12x18:$20,18x24:$30,24x36:$40
+mex_redmacau.jpg|featured,wildlife|12x18:$20,18x24:$30,24x36:$40
+mex_xcaretdance.jpg|featured,cities & culture,portraits|12x18:$20,18x24:$30,24x36:$40
+mex_xcaretsinger.jpg|featured,cities & culture,portraits|12x18:$20,18x24:$30,24x36:$40
+nantucket_bee.jpg|featured,wildlife,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+nantucket_droplets.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+nantucket_kayaks.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_bee.jpg|featured,wildlife,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+ny_butterfly.jpg|featured,wildlife,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+ny_carlights.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_chinatownabstract.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_dizengoff.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_dog.jpg|featured,wildlife,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_fruitvendor.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_macro.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+ny_monarch.jpg|featured,wildlife|12x18:$20,18x24:$30,24x36:$40
+ny_overlook.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_pharoahs.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_pinkblue.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_rose.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+ny_statues.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_tammybubble.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+ny_tammyeye.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+ny_tillandisa.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+ny_timessquare.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_watercolorskyline.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_worldtrade.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+ny_xx.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+russia_bathroom.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+russia_chandelier.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+russia_elitists.jpg|featured,cities & culture|12x18:$20,18x24:$30,24x36:$40
+sg_chicks.jpg|featured,wildlife|12x18:$20,18x24:$30,24x36:$40
+sg_flamingos.jpg|featured,wildlife|12x18:$20,18x24:$30,24x36:$40
+singapore_babboons.jpg|featured|12x18:$20,18x24:$30,24x36:$40
+van_anenome.jpg|featured,wildlife,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+van_boatindistance.jpg|featured,landscapes,cities & culture|12x18:$20,18x24:$30,24x36:$40
+van_closeupjelly.jpg|featured,wildlife|12x18:$20,18x24:$30,24x36:$40
+van_clovers.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+van_jellyfish.jpg|featured,wildlife,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+van_stripes.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+ys_2geysers.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+ys_blackriver.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+ys_bwspiral.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+ys_fallentrees.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+ys_geyser.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+ys_grandprismatic.jpg|landscapes,featured|12x18:$20,18x24:$30,24x36:$40
+ys_grass.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40
+ys_gwentammy.jpg|featured,landscapes,portraits|12x18:$20,18x24:$30,24x36:$40
+ys_prismaticbw.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+ys_prismaticreflection.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+ys_sunset.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+ys_sunsetriver.jpg|featured,landscapes|12x18:$20,18x24:$30,24x36:$40
+ys_yellowbacteria.jpg|featured,macro & abstract|12x18:$20,18x24:$30,24x36:$40

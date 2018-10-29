@@ -1,19 +1,23 @@
-const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const entry = [
-  './client/index.js'
+  './src/client/index.js',
+  './public/styles.css'
 ];
 
-const output = {
-  path: path.resolve(__dirname, 'dist'),
-  publicPath: '/dist/',
-  filename: 'bundle.js',
-};
 
 module.exports = {
-  entry, output,
-  devtool: "eval-source-map",
+  devServer: {
+    host: '0.0.0.0',
+    port: 8080,
+  },
+  entry,
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist/')
+  },
+  //devtool: "eval-source-map",
   module: {
     loaders: [
       {
@@ -24,7 +28,26 @@ module.exports = {
           presets:[ 'es2015', 'react', 'stage-2' ]
         }
       },
+      {
+        test: /\.json$/, 
+        loader: 'json-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
     ],
   },
+  plugins : [
+    new HtmlWebpackPlugin({
+      template : './public/index.html'
+    })
+  ],
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  }
 };    
           

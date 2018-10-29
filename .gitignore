@@ -69,3 +69,5 @@ typings/
 
 # dist folder should be re-bundled
 dist
+
+assets
