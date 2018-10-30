@@ -27,5 +27,9 @@ export const hideCart = () => ({
   type: types.HIDE_CART,
 });
 
+export const toggleSideBar = () => ({
+  type : types.TOGGLE_SIDE_BAR,
+})
+
 
 

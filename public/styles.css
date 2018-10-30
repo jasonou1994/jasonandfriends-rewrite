@@ -64,6 +64,20 @@
     color: rgb(250,250,250);
 }
 
+#sideBar {
+  width : 16%;
+  height : 100%;
+  font-family : Raleway, Arial, sans-serif;
+  text-decoration-style : solid;
+  color: grey;
+  text-align : left;
+  padding: 5px;
+  padding-top : -3px;
+  padding-right : 10px;
+  line-height : 20px;
+  box-sizing : border-box
+}
+
 #sideBarToggle {
     width : 25%;
     display: none;

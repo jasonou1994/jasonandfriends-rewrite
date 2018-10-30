@@ -10,6 +10,7 @@ import Cart from './Cart.jsx';
 import GreyScreen from './GreyScreen.jsx';
 
 const mapStateToProps = store => ({
+  isDisplayedSideBar : store.state.isDisplayedSideBar,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -59,7 +60,7 @@ class App extends Component {
         <Cart></Cart>
         <GreyScreen></GreyScreen>
         <Header></Header>
-        <Sidebar sidebarLinkClick={this.props.pullImagesFromDB}></Sidebar>
+        <Sidebar sidebarLinkClick={this.props.pullImagesFromDB} isDisplayedSideBar={this.props.isDisplayedSideBar}></Sidebar>
         <Gallery></Gallery>
       </div>
     )

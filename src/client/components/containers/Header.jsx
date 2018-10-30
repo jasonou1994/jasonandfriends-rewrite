@@ -9,6 +9,9 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
   showCart : () => {
     dispatch(actions.showCart());
+  },
+  toggleSideBar : () => {
+    dispatch(actions.toggleSideBar());
   }
 });
 
@@ -21,7 +24,7 @@ class Header extends Component {
     return(
       <div style={styles}>
         <div id='sideBarToggle'>
-          <img src={__dirname + 'assets/icons/menuicon.png'} style={{width: '70px', cursor : 'pointer', background: 'green'}} onClick={this.props.showCart}></img>
+          <img src={__dirname + 'assets/icons/menuicon.png'} style={{width: '70px', cursor : 'pointer', background: 'green'}} onClick={this.props.toggleSideBar}></img>
         </div>
       
         <div id='titles'>
