@@ -6,7 +6,7 @@ const initialState = {
   imageForBlowUp : "",
   isDisplayedBlowUp : 'none',
   isDisplayedCart : 'none',
-  isDisplayedSideBar : 'inline-block',
+  isDisplayedSideBar : 'block',
   cartProducts : [],
 };
 
