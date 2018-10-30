@@ -6,6 +6,7 @@ const initialState = {
   imageForBlowUp : "",
   isDisplayedBlowUp : 'none',
   isDisplayedCart : 'none',
+  isDisplayedSideBar : 'inline-block',
   cartProducts : [],
 };
 
@@ -77,6 +78,15 @@ const reducer = (state=initialState, action) => {
       return {
         ...state,
         cartProducts
+      }
+    }
+
+    case types.TOGGLE_SIDE_BAR:{
+      console.log('action',action);
+      let isDisplayedSideBar = state.isDisplayedSideBar === 'block' ? 'none' : 'block';
+      return {
+        ...state,
+        isDisplayedSideBar,
       }
     }
     
