@@ -58,7 +58,6 @@ const cartController = {
         },{
             $inc: {'products.$.quantity': req.body.quantity}
         }, (err, response) => {
-            
             if(err){
                 res.header(500);
                 res.end();
@@ -78,6 +77,7 @@ const cartController = {
                 },{
                     $push: {products : newProduct}
                 }, (err, response) => {
+                    console.log(response);
                     if(err){
                         res.header(500);
                         res.end();

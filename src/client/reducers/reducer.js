@@ -6,8 +6,9 @@ const initialState = {
   imageForBlowUp : "",
   isDisplayedBlowUp : 'none',
   isDisplayedCart : 'none',
-  isDisplayedSideBar : 'block',
+  isDisplayedSideBar : true,
   cartProducts : [],
+  screenWidth : typeof window === 'object' ? window.innerWidth : null,
 };
 
 const reducer = (state=initialState, action) => {
@@ -83,10 +84,19 @@ const reducer = (state=initialState, action) => {
 
     case types.TOGGLE_SIDE_BAR:{
       console.log('action',action);
-      let isDisplayedSideBar = state.isDisplayedSideBar === 'block' ? 'none' : 'block';
+      let isDisplayedSideBar = !state.isDisplayedSideBar;
+      ;
       return {
         ...state,
         isDisplayedSideBar,
+      }
+    }
+
+    case types.SCREEN_RESIZE:{
+      console.log('action',action);
+      return {
+        ...state,
+        screenWidth : action.payload,
       }
     }
     

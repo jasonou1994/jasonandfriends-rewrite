@@ -63,10 +63,6 @@ class Gallery extends Component {
 }
 
 const styles = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    width: '84%',
-    boxSizing : 'border-box',
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Gallery);

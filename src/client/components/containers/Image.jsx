@@ -26,12 +26,12 @@ class Image extends Component {
 }
 
 const styles = {
-    width : '100%',
-    alignSelf : 'center',
-    flex: '0 0 auto',
-    padding : '5px',
-    boxSizing : 'border-box',
-    cursor : 'pointer'
+    // width : '100%',
+    // alignSelf : 'center',
+    // flex: '0 0 auto',
+    // padding : '5px',
+    // boxSizing : 'border-box',
+    // cursor : 'pointer'
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Image);

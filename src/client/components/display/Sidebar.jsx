@@ -12,11 +12,15 @@ const Sidebar = ({sidebarLinkClick, isDisplayedSideBar}) => {
   });
 
   let styles = {
-    // display : isDisplayedSideBar,
+    //width : isDisplayedSideBar ? 'initial' : '0%',
+    // opacity : isDisplayedSideBar ? '1' : '0',
+    // paddingTop : isDisplayedSideBar ? '-3px' : '0px',
+    // paddingRight : isDisplayedSideBar ? '10px' : '0px',
+    // paddingLeft : isDisplayedSideBar ? '10px' : '0px',
   }
 
   return (
-    <div style={styles}>
+    <div style={styles} id='sideBar'>
      {sidebarLinks}
     </div>
   );
@@ -24,7 +28,7 @@ const Sidebar = ({sidebarLinkClick, isDisplayedSideBar}) => {
 
 Sidebar.propTypes = {
   sidebarLinkClick: PropTypes.func.isRequired,
-  isDisplayedSideBar : PropTypes.string.isRequired,
+  isDisplayedSideBar : PropTypes.bool.isRequired,
 };
 
 

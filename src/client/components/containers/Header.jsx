@@ -22,7 +22,7 @@ class Header extends Component {
 
   render() {
     return(
-      <div style={styles}>
+      <div id='header' style={styles}>
         <div id='sideBarToggle'>
           <img src={__dirname + 'assets/icons/menuicon.png'} style={{width: '70px', cursor : 'pointer', background: 'green'}} onClick={this.props.toggleSideBar}></img>
         </div>
@@ -42,12 +42,7 @@ class Header extends Component {
 }
 
 const styles = {
-  fontFamily : 'Raleway, Arial, sans-serif',
-  textDecorationStyle : 'solid',
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent : 'space-between',
-  width: '100%',
+  
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

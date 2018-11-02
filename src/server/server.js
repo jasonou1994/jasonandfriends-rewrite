@@ -28,41 +28,43 @@ const imageController = require('./images/imageController');
 const cookieController = require('./cookies/cookieController');
 const cartController = require('./cart/cartController')
 
+app.use(cookieController.setCookie);
+
 //CLIENT ROUTES
 app.get('/', cookieController.setCookie, (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../dist','index.html'))
+    res.sendFile(path.join(__dirname,'../../dist','index.html'))
 });
 
-app.get('/dist/bundle.js', cookieController.setCookie,(req, res, next) => {
+app.get('/bundle.js', cookieController.setCookie,(req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../dist','bundle.js'));
+    res.sendFile(path.join(__dirname,'../../dist','bundle.js'));
 });
 
-app.get('/dist/styles.css', cookieController.setCookie,(req, res, next) => {
+app.get('/styles.css', cookieController.setCookie,(req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../dist','styles.css'));
+    res.sendFile(path.join(__dirname,'../../dist','styles.css'));
 });
 
 app.get('/assets/thumbnails/:assetPath', cookieController.setCookie, (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../assets/thumbnails',req.params.assetPath));
+    res.sendFile(path.join(__dirname,'../../assets/thumbnails',req.params.assetPath));
 });
 
 app.get('/assets/full/:assetPath', cookieController.setCookie, (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../assets/full',req.params.assetPath));
+    res.sendFile(path.join(__dirname,'../../assets/full',req.params.assetPath));
 });
 
 app.get('/assets/icons/:assetPath', cookieController.setCookie, (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../assets/icons',req.params.assetPath));
+    res.sendFile(path.join(__dirname,'../../assets/icons',req.params.assetPath));
 });
 
 //UTIL ROUTES
 app.use('/utils', utilRouter);
 
-utilRouter.post('/', imageController.pushImagesToServer);
+utilRouter.post('/',  imageController.pushImagesToServer);
 utilRouter.get('/', imageController.getAllImages);
 utilRouter.get('/image', imageController.findSpecificImages);
 

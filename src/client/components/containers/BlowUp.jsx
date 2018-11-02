@@ -113,7 +113,7 @@ class BlowUp extends Component {
             </div>
             <div style={{width : '100%', display: 'flex', alignItems: 'center'}}>
                 <span style={{width : '60%', fontSize : '25px', fontWeight : 'bold'}}>{this.state.displayedPrice}</span>
-                <div id='blowUpButton' style={{width : '40%'}} onClick={this.addProductToCart}>Add to Cart</div>
+                <div id='blowUpButton' style={{width : '40%'}} onClick={() => { this.addProductToCart(); this.props.hideBlowUpImage()}}>Add to Cart</div>
             </div>
         </div>
       </div>
