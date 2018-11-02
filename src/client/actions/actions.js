@@ -36,6 +36,10 @@ export const screenResize = (screenWidth) => ({
   payload : screenWidth
 })
 
+export const updateSideBarHeight = (height) => ({
+  type : types.UPDATE_SIDEBAR_HEIGHT,
+  payload : height
+})
 
 
 

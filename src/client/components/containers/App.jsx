@@ -60,7 +60,7 @@ class App extends Component {
         <Cart></Cart>
         <GreyScreen></GreyScreen>
         <Header></Header>
-        <Sidebar sidebarLinkClick={this.props.pullImagesFromDB} isDisplayedSideBar={this.props.isDisplayedSideBar}></Sidebar>
+        <Sidebar sidebarLinkClick={this.props.pullImagesFromDB}></Sidebar>
         <Gallery></Gallery>
       </div>
     )

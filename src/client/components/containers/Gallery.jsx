@@ -7,7 +7,10 @@ import Column from '../display/Column.jsx';
 import HeadImage from '../display/HeadImage.jsx';
 
 const mapStateToProps = store => ({
-  displayedImages : store.state.displayedImages
+  displayedImages : store.state.displayedImages,
+  sidebarHeight : store.state.sidebarHeight,
+  headerHeight : store.state.headerHeight,
+  screenWidth : store.state.screenWidth,
 })
 const mapDispatchToProps = dispatch => ({
 });
@@ -19,24 +22,19 @@ class Gallery extends Component {
 
   shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-  
-    // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-  
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
   
-      // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-  
     return array;
   }
 
   render() {
+    
     let leftImages = [];
     let rightImages = [];
     let centerImage;
@@ -52,6 +50,13 @@ class Gallery extends Component {
       centerImage = rightImages.splice(0,1);
     }
 
+    let marginTop = this.props.screenWidth <= 800 ? this.props.sidebarHeight + this.props.headerHeight : 0;
+    const styles = {
+      marginTop : marginTop +'px',
+    }
+    console.log(this.props.sidebarHeight);
+    console.log(this.props.headerHeight);
+
     return(
       <div id='gallery' style={styles}>
         <HeadImage centerImage={centerImage}></HeadImage>
@@ -62,7 +67,6 @@ class Gallery extends Component {
   }
 }
 
-const styles = {
-}
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Gallery);

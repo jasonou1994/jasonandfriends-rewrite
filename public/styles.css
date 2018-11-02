@@ -102,12 +102,15 @@
 @media(max-width: 800px){
   #sideBar {
     margin-top: 114px;
-    width: 140px;
-    height: 100%;
+    /* padding: 10px 0 10px 0; */
+    width: 100%;
+    height: auto;
     background: rgb(240, 240, 240);
     position: fixed;
-    text-align: center;
-    padding-top: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
   }
 }
 
@@ -121,8 +124,7 @@
 @media(max-width: 800px){
   #gallery {
     width: 100%;
-    margin-left: 140px;
-    margin-top: 114px;
+    margin-top: auto;
     padding-right: 3px;
     padding-top: 3px;
     padding-left: 3px;
@@ -207,7 +209,7 @@ select {
 }
 @media(max-width: 800px){
     .sideBarLink {
-        margin-bottom: 7px;
+        margin: 5px 4px;
     }
   }
 

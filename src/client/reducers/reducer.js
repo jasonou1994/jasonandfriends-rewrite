@@ -6,9 +6,12 @@ const initialState = {
   imageForBlowUp : "",
   isDisplayedBlowUp : 'none',
   isDisplayedCart : 'none',
-  isDisplayedSideBar : true,
+  isDisplayedSideBar : false,
   cartProducts : [],
+
   screenWidth : typeof window === 'object' ? window.innerWidth : null,
+  sidebarHeight : 0,
+  headerHeight : 114,
 };
 
 const reducer = (state=initialState, action) => {
@@ -99,6 +102,14 @@ const reducer = (state=initialState, action) => {
         screenWidth : action.payload,
       }
     }
+
+    case types.UPDATE_SIDEBAR_HEIGHT:{
+      console.log('action',action);
+      return {
+        ...state,
+        sidebarHeight : action.payload,
+      }
+    }    
     
     default:
       return state;

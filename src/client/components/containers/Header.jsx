@@ -21,14 +21,12 @@ class Header extends Component {
     super(props);
   }
 
-  
-
   render() {
 
     let cartImage = this.props.screenWidth <= 800 ? 'assets/icons/shoppingCartWhite.png' : 'assets/icons/shoppingCartBlack.png'
 
     return(
-      <div id='header' style={styles}>
+      <div id='header' style={styles} ref={(divElement) => this.divElement=divElement}>
         <div id='sideBarToggle' style={{position: "absolute", left: '0px'}}>
           <img src={__dirname + 'assets/icons/menuicon.png'} style={{width: '70px', cursor : 'pointer'}} onClick={this.props.toggleSideBar}></img>
         </div>
