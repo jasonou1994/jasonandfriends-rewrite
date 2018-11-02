@@ -18,6 +18,7 @@ export const UPDATE_STATE_CART = "UPDATE_STATE_CART";
 export const SHOW_CART = "SHOW_CART";
 export const HIDE_CART = "HIDE_CART";
 export const TOGGLE_SIDE_BAR = 'TOGGLE_SIDE_BAR';
+export const SCREEN_RESIZE = 'SCREEN_RESIZE';
 
 
 

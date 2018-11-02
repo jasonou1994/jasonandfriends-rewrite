@@ -27,10 +27,10 @@
   text-decoration-style : solid;
   display: flex;
   flex-wrap: wrap;
-  justify-content : space-between;
   width: 100%;
   padding-left: 10px;
   letter-spacing: 0px;
+  height: 114px;
 }
 @media(max-width: 800px){
   #header {
@@ -38,6 +38,7 @@
     background-color: black;
     padding-left: 0px;
     position: fixed;
+    justify-content: center;
   }
 }
 
@@ -103,7 +104,7 @@
     margin-top: 114px;
     width: 140px;
     height: 100%;
-    background: #e0e0e0;
+    background: rgb(240, 240, 240);
     position: fixed;
     text-align: center;
     padding-top: 20px;
@@ -119,7 +120,7 @@
 }
 @media(max-width: 800px){
   #gallery {
-    width: 80%;
+    width: 100%;
     margin-left: 140px;
     margin-top: 114px;
     padding-right: 3px;
@@ -139,7 +140,7 @@
 }
 
 #titles {
-    display : flex; flex-direction: column; width : 50%;
+    display : flex; flex-direction: column; 
 }
 @media(max-width: 800px){
     #titles {

@@ -31,5 +31,11 @@ export const toggleSideBar = () => ({
   type : types.TOGGLE_SIDE_BAR,
 })
 
+export const screenResize = (screenWidth) => ({
+  type : types.SCREEN_RESIZE,
+  payload : screenWidth
+})
+
+
 
 
