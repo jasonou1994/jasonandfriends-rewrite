@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => ({
           displayedImages.push(image);
         });
         //console.log(displayedImages);
-        dispatch(actions.updateStateImages(displayedImages));
+        dispatch(actions.updateStateImages(displayedImages, tag));
       })
   },
   pullCartFromDB : () => {

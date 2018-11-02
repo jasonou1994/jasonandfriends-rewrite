@@ -6,6 +6,7 @@ import CartProduct from '../display/CartProduct.jsx';
 const mapStateToProps = store => ({
   cartProducts : store.state.cartProducts,
   isDisplayedCart : store.state.isDisplayedCart,
+  screenWidth : store.state.screenWidth,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -49,13 +50,6 @@ class Cart extends Component {
       })
   }
 
-  // componentDidUpdate() {
-  //   if(this.props.isDisplayedCart === 'none'){
-  //     this.setState({width : 0})
-  //   } else {
-  //     this.setState({width : 0})
-  //   }
-  // }
   
   render() {
     let cartProductContainerHeight;
@@ -88,14 +82,12 @@ class Cart extends Component {
       cartProductContainerHeight = 60;
     }
 
-    let height = (this.props.isDisplayedCart === 'none') ? '0px' : 'auto';
-    let opacity = (this.props.isDisplayedCart === 'none') ? '0' : '1';
-    let zIndex = (this.props.isDisplayedCart === 'none') ? '-1000' : '1000';
+   
     const overallStyles = {
-      width: this.state.width+'px',
-      height : height,
-      opacity : opacity,
-      zIndex : zIndex,
+      width: this.props.screenWidth <= 600 ? this.props.screenWidth -20 : '350px',
+      height : (this.props.isDisplayedCart === 'none') ? '0px' : 'auto',
+      opacity : (this.props.isDisplayedCart === 'none') ? '0' : '1',
+      zIndex : this.props.isDisplayedCart === 'none' ? '-1000' : '1000',
     }
 
     return(

@@ -3,6 +3,7 @@ import * as types from '../actions/actionTypes';
 
 const initialState = {
   displayedImages : [],
+  imageFilterTag : "",
   imageForBlowUp : "",
   isDisplayedBlowUp : 'none',
   isDisplayedCart : 'none',
@@ -20,12 +21,13 @@ const reducer = (state=initialState, action) => {
     case types.UPDATE_STATE_IMAGES:{
       console.log('action',action);
       let displayedImages = [];
-      action.payload.forEach(image => {
+      action.payload.displayImages.forEach(image => {
         displayedImages.push(image);
       });
       return {
         ...state,
-        displayedImages
+        displayedImages,
+        imageFilterTag : action.payload.tag
       }
     }
     case types.SET_BLOW_UP_IMAGE:{

@@ -209,7 +209,7 @@ select {
 }
 @media(max-width: 800px){
     .sideBarLink {
-        margin: 5px 4px;
+        margin: 5px 5px;
     }
   }
 

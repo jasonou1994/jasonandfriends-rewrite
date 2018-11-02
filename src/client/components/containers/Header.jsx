@@ -25,6 +25,8 @@ class Header extends Component {
 
     let cartImage = this.props.screenWidth <= 800 ? 'assets/icons/shoppingCartWhite.png' : 'assets/icons/shoppingCartBlack.png'
 
+    let headerTitle = this.props.screenWidth <= 600 ? 'JASON OU' : 'JASONANDFRIENDS';
+
     return(
       <div id='header' style={styles} ref={(divElement) => this.divElement=divElement}>
         <div id='sideBarToggle' style={{position: "absolute", left: '0px'}}>
@@ -32,7 +34,7 @@ class Header extends Component {
         </div>
       
         <div id='titles'>
-          <h1 style={{marginBottom:'-5px'}}>JASON OU</h1>
+          <h1 style={{marginBottom:'-5px'}}>{headerTitle}</h1>
           <h3 style={{marginBottom: '20px'}}>PORTFOLIO & PHOTOGRAPHY</h3>
         </div>
 
