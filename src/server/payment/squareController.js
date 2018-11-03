@@ -99,7 +99,6 @@ function confirmPayment(req, res, next) {
         cookieId : req.cookies['jasonandfriends-cart'],
       }, {
         status : cartStatus,
-        products : [],
       })
       .then(updatedCart => { 
         console.log('updatedCart', updatedCart);

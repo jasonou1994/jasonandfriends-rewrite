@@ -85,7 +85,7 @@ const reducer = (state=initialState, action) => {
       return {
         ...state,
         cartProducts,
-        cartStatus : action.payload.status === 'paid' ? true : false,
+        isDisplayedConfirmation : action.payload.status === 'paid' ? true : false,
       }
     }
 
@@ -98,6 +98,14 @@ const reducer = (state=initialState, action) => {
         isDisplayedSideBar,
       }
     }
+
+    case types.HIDE_CONFIRMATION:{
+      console.log('action',action);
+      return {
+        ...state,
+        isDisplayedConfirmation : false,
+      }
+    }    
 
     case types.SCREEN_RESIZE:{
       console.log('action',action);

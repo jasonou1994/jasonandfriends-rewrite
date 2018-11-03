@@ -71,11 +71,15 @@ utilRouter.get('/image', imageController.findSpecificImages);
 utilRouter.post('/cart', cartController.updateCart);
 utilRouter.get('/cart', cartController.getCart);
 utilRouter.delete('/cart', cartController.deleteFromCart);
+utilRouter.put('/cart', cookieController.resetCookie, (req, res) => {
+    res.send({});
+});
 
 utilRouter.post('/payment', squareController.processPayment);
 utilRouter.get('/payment', squareController.confirmPayment, (req, res) => {
     res.redirect ('/');
 });
+
 
 
 module.exports = app;

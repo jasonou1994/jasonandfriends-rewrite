@@ -41,5 +41,10 @@ export const updateSideBarHeight = (height) => ({
   payload : height
 })
 
+export const hideConfirmation = () => ({
+  type : types.HIDE_CONFIRMATION,
+})
+
+
 
 

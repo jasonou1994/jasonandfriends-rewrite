@@ -8,6 +8,7 @@ import Header from './Header.jsx';
 import BlowUp from './BlowUp.jsx';
 import Cart from './Cart.jsx';
 import GreyScreen from './GreyScreen.jsx';
+import Confirmation from '../display/Confirmation.jsx';
 
 const mapStateToProps = store => ({
   isDisplayedSideBar : store.state.isDisplayedSideBar,
@@ -58,6 +59,7 @@ class App extends Component {
       <div id='app'>
         <BlowUp></BlowUp>
         <Cart></Cart>
+        <Confirmation></Confirmation>
         <GreyScreen></GreyScreen>
         <Header></Header>
         <Sidebar sidebarLinkClick={this.props.pullImagesFromDB}></Sidebar>
