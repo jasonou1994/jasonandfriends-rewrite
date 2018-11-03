@@ -7,11 +7,7 @@ const Column = ({imageList}) => (
   </div>
 );
 
-const styles = {
-    // display: 'flex',
-    // flexDirection : 'column',
-    // width: '50%',
-}
+const styles = {}
 
 Column.propTypes = {
     imageList: PropTypes.array.isRequired,

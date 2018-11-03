@@ -4,7 +4,8 @@ const cartController = {
     createCart(cookieId) {
         console.log('createCart called.');
         Cart.create({
-            cookieId : cookieId
+            cookieId : cookieId,
+            status : 'initialized',
         },(err, response) => {
             console.log('response', response);
             console.warn('err', err);

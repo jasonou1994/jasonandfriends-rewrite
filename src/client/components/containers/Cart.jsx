@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 import CartProduct from '../display/CartProduct.jsx';
+import { privateEncrypt } from 'crypto';
+import CartCheckOutBanner from '../display/CartCheckOutBanner.jsx';
+import CartDelivery from '../display/CartDelivery.jsx';
 
 const mapStateToProps = store => ({
   cartProducts : store.state.cartProducts,
@@ -30,6 +33,7 @@ class Cart extends Component {
     super(props);
     this.state={
       width : 350,
+      currentStage : 'Pre',
     }
   }
 
@@ -45,11 +49,19 @@ class Cart extends Component {
         size : product.size,
       })
     })
-      .then(response => {
-        this.props.pullCartFromDB();
-      })
+    .then(response => {
+      this.props.pullCartFromDB();
+    })
   }
 
+  checkOutWithSquare = () => {
+    let uri = '/utils/payment';
+    fetch (uri, {
+      method : 'POST'
+    })
+    .then (res => res.json())
+    .then (res => window.location.href = res.url);
+  }
   
   render() {
     let cartProductContainerHeight;
@@ -82,7 +94,29 @@ class Cart extends Component {
       cartProductContainerHeight = 60;
     }
 
+    let cartTotalAmount = this.props.cartProducts.map(cartProduct => {
+      return cartProduct.price * cartProduct.quantity;
+    }).reduce((acc, current) => {
+      return acc + current;
+    },0);
    
+    let cartButtons = [];
+    let cartBodyContents = [];
+
+    if(this.state.currentStage === 'Pre'){
+      cartButtons.push(<div key={0} className='checkOutButtonBlue' onClick={() => this.setState({ currentStage : 'Delivery' })}>Check Out</div>);
+
+      cartBodyContents.push(
+      <div key={0} style={{display : 'flex', flexDirection : 'column', marginTop: '3px', height : cartProductContainerHeight, overflow: 'scroll', borderBottom: '1px solid #383838'}}>
+      {cartProductArr}
+      </div>)
+    } else if (this.state.currentStage === 'Delivery') {
+      cartButtons.push(<div key={0} className='checkOutButtonGrey' onClick={() => this.setState({ currentStage : 'Pre' })}>Back</div>);
+      cartButtons.push(<div key={1} className='checkOutButtonBlue' onClick={this.checkOutWithSquare}>Pay with Square</div>);
+
+      cartBodyContents.push(<CartDelivery key={0}></CartDelivery>);
+    }
+
     const overallStyles = {
       width: this.props.screenWidth <= 600 ? this.props.screenWidth -20 : '350px',
       height : (this.props.isDisplayedCart === 'none') ? '0px' : 'auto',
@@ -100,8 +134,14 @@ class Cart extends Component {
             <img style={{top: '20px', right: '20px', width: '6%', alignSelf : 'center', flex: '0 0 auto', cursor : 'pointer'}} src={__dirname + 'assets/icons/cross black.png'} onClick={this.props.hideCart}></img>
           </div>
         </div>
-        <div style={{display : 'flex', flexDirection : 'column', marginTop: '3px', height : cartProductContainerHeight, overflow: 'scroll'}}>
-          {cartProductArr}
+
+        {cartBodyContents}
+
+        <div style={{display: 'flex', justifyContent : 'space-between', marginTop: '5px'}}>
+          <div style={{fontSize : '24px'}}>${cartTotalAmount}</div>
+          <div style={{display: 'flex'}}>
+            {cartButtons}
+          </div>   
         </div>
       </div>
     )

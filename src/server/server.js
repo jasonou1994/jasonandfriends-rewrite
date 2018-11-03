@@ -27,8 +27,8 @@ mongoose.connection.once('open', () => {
 const imageController = require('./images/imageController');
 const cookieController = require('./cookies/cookieController');
 const cartController = require('./cart/cartController')
+const squareController = require('./payment/squareController');
 
-app.use(cookieController.setCookie);
 
 //CLIENT ROUTES
 app.get('/', cookieController.setCookie, (req, res, next) => {
@@ -36,27 +36,27 @@ app.get('/', cookieController.setCookie, (req, res, next) => {
     res.sendFile(path.join(__dirname,'../../dist','index.html'))
 });
 
-app.get('/bundle.js', cookieController.setCookie,(req, res, next) => {
+app.get('/bundle.js', (req, res, next) => {
     res.header(200);
     res.sendFile(path.join(__dirname,'../../dist','bundle.js'));
 });
 
-app.get('/styles.css', cookieController.setCookie,(req, res, next) => {
+app.get('/styles.css', (req, res, next) => {
     res.header(200);
     res.sendFile(path.join(__dirname,'../../dist','styles.css'));
 });
 
-app.get('/assets/thumbnails/:assetPath', cookieController.setCookie, (req, res, next) => {
+app.get('/assets/thumbnails/:assetPath', (req, res, next) => {
     res.header(200);
     res.sendFile(path.join(__dirname,'../../assets/thumbnails',req.params.assetPath));
 });
 
-app.get('/assets/full/:assetPath', cookieController.setCookie, (req, res, next) => {
+app.get('/assets/full/:assetPath', (req, res, next) => {
     res.header(200);
     res.sendFile(path.join(__dirname,'../../assets/full',req.params.assetPath));
 });
 
-app.get('/assets/icons/:assetPath', cookieController.setCookie, (req, res, next) => {
+app.get('/assets/icons/:assetPath', (req, res, next) => {
     res.header(200);
     res.sendFile(path.join(__dirname,'../../assets/icons',req.params.assetPath));
 });
@@ -71,6 +71,11 @@ utilRouter.get('/image', imageController.findSpecificImages);
 utilRouter.post('/cart', cartController.updateCart);
 utilRouter.get('/cart', cartController.getCart);
 utilRouter.delete('/cart', cartController.deleteFromCart);
+
+utilRouter.post('/payment', squareController.processPayment);
+utilRouter.get('/payment', squareController.confirmPayment, (req, res) => {
+    res.redirect ('/');
+});
 
 
 module.exports = app;

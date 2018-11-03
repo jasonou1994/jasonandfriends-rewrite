@@ -46,7 +46,7 @@
     position: fixed;
     top: 10px;
     right : 10px;
-    border-radius : 5px;
+    border-radius : 3px;
     padding: 5px;
     box-sizing : border-box;
     background : red;
@@ -226,4 +226,63 @@ select {
     .column {
         width: 100%;
     }
+}
+
+.checkOutButtonBlue {
+    height: 25px;
+    background-color: #F5f5f5;
+    border: 1px solid #007bff;
+    border-radius: 2px;
+    color :#007bff;
+    cursor: pointer;
+    padding : 0px 5px;
+    text-align: center;
+    line-height: 25px;
+    transition: .5s ease;
+    margin-left: 6px;
+}
+.checkOutButtonBlue:hover {
+    background-color: #007bff;
+    color: rgb(250,250,250);
+}
+.checkOutButtonGrey {
+    height: 25px;
+    background-color: #F5f5f5;
+    border: 1px solid #6c757d;
+    border-radius: 2px;
+    color :#6c757d;
+    cursor: pointer;
+    padding : 0px 5px;
+    text-align: center;
+    line-height: 25px;
+    transition: .5s ease;
+    margin-left: 6px;
+}
+.checkOutButtonGrey:hover {
+    background-color: #6c757d;
+    color: rgb(250,250,250);
+}
+
+.checkOutInputField {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-shadow: none;
+    text-indent: 0px;
+    text-transform: none;
+    word-spacing: normal;
+    letter-spacing: normal;
+    color: initial;
+    text-rendering: auto;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering : logical;
+    cursor: text;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    width: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    height: 25px;
+    box-sizing: border-box;
 }

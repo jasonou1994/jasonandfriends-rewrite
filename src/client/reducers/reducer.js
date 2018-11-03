@@ -8,6 +8,7 @@ const initialState = {
   isDisplayedBlowUp : 'none',
   isDisplayedCart : 'none',
   isDisplayedSideBar : false,
+  isDisplayedConfirmation : false,
   cartProducts : [],
 
   screenWidth : typeof window === 'object' ? window.innerWidth : null,
@@ -83,7 +84,8 @@ const reducer = (state=initialState, action) => {
       });
       return {
         ...state,
-        cartProducts
+        cartProducts,
+        cartStatus : action.payload.status === 'paid' ? true : false,
       }
     }
 
