@@ -70,3 +70,5 @@ typings/
 # dist folder should be re-bundled
 dist
 
+#dont include images
+assets
