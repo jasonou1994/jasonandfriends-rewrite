@@ -92,13 +92,14 @@ class BlowUp extends Component {
     return(
       <div id='blowUp' style={overallStyles}>
         <img style={{position: 'absolute', top: '20px', left: '20px', width: '5%', cursor : 'pointer'}} src={__dirname + 'assets/icons/cross.png'} onClick={this.props.hideBlowUpImage}></img>
-        <img src={__dirname + 'assets/full/' + this.props.imageForBlowUp.name} style={imageStyles}></img>
+        <img src={__dirname + 'assets/thumbnails/' + this.props.imageForBlowUp.name} style={imageStyles}></img>
         <div style={{display: 'flex', flexWrap: 'wrap', padding: '10px'}}>
             <div style={{width : '100%', fontSize : '25px', borderBottom: '1px solid rgb(200,200,200)', paddingBottom: '4px', marginBottom: '10px'}}>Buy Prints</div>
             <div style={{width: '60%' ,display: 'flex', flexDirection:'column'}}>
                 <span style={{fontSize: '18px', marginBottom: '5px'}}>Description:</span>
                 <div>
                 • Printed on Epson Ultra Premium Luster Photo Paper <br></br>
+                • Image resolution always at 250 dpi or higher <br></br>
                 • 10mm thick <br></br>
                 • Slightly glossy <br></br>
                 • Fingerprint resistant
