@@ -119,7 +119,7 @@ function confirmPayment(req, res, next) {
       })*100;
 
       //perform final verification and set status
-      let cartStatus = (cartAmount === amountCharged && currency === 'USD' && cardStatus === 'CAPTURED') ? 'paid' : 'notpaid';
+      let cartStatus = (cartAmount <= amountCharged && currency === 'USD' && cardStatus === 'CAPTURED') ? 'paid' : 'notpaid';
       
       Cart.updateOne({
         cookieId : req.cookies['jasonandfriends-cart'],
