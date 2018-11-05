@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
   });
 
 app.listen(80, "0.0.0.0", () => {
-    console.log('Express server on 80');
+    console.log('Express server on 80, 0.0.0.0');
 });
 
 mongoose.connect('mongodb://jason:jasonou1@ds145093.mlab.com:45093/jasonandfriends');
