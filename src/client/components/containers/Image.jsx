@@ -25,13 +25,6 @@ class Image extends Component {
   }
 }
 
-const styles = {
-    // width : '100%',
-    // alignSelf : 'center',
-    // flex: '0 0 auto',
-    // padding : '5px',
-    // boxSizing : 'border-box',
-    // cursor : 'pointer'
-}
+const styles = {}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Image);

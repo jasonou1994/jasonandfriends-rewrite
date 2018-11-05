@@ -15,13 +15,13 @@ app.use(function(req, res, next) {
     next();
   });
 
-app.listen(3000, () => {
-    console.log('Express server on 3000');
+app.listen(80, () => {
+    console.log('Express server on 80');
 });
 
-mongoose.connect('mongodb://localhost:27017/jasonandfriends');
+mongoose.connect('mongodb://jason:jasonou1@ds145093.mlab.com:45093/jasonandfriends');
 mongoose.connection.once('open', () => {
-    console.log('Connected to jasonandfriends MongoDB');
+    console.log('Connected to jasonandfriends MLabs MongoDB');
 });
 
 const imageController = require('./images/imageController');

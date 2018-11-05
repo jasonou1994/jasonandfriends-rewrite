@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
-import SidebarLink from "./SidebarLink.jsx";
+import SidebarLink from "../display/SidebarLink.jsx";
 import * as actions from '../../actions/actions';
 
 const mapStateToProps = store => ({

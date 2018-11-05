@@ -12,13 +12,13 @@ squareController.processPayment = processPayment;
 squareController.confirmPayment = confirmPayment;
 
 function processPayment(req, res, next) {
-  
+  console.log('-----ENTERING squareController.processPayment-----');
+  console.log('body', req.body);
   Cart.findOne({
     cookieId : req.cookies['jasonandfriends-cart'],
   })
   .then(response => {
     let lineItems = response.products.map(cartProduct => {
-
       let price = new SquareConnect.Money();
       price.amount = cartProduct.price*100;
       price.currency = 'USD'
@@ -30,23 +30,48 @@ function processPayment(req, res, next) {
       
       return item;
     });
+    
+    let address = new SquareConnect.Address();
+    address.address_line_1 = req.body.address.addOne ? req.body.address.addOne : '';
+    address.address_line_2 = req.body.address.addTwo ? req.body.address.addTwo : '';
+    address.locality = req.body.address.city ? req.body.address.city : '';
+    address.country = 'US';
+    address.administrative_district_level_1 = req.body.address.state ? req.body.address.state : '';
+    address.postal_code = req.body.address.zip ? req.body.address.zip : '';
+    address.first_name = req.body.address.name ? req.body.address.name.split(' ')[0] : '';
+    address.last_name = req.body.address.name ? req.body.address.name.split(' ')[1] : '';
+
+    let tax = new SquareConnect.CreateOrderRequestTax();
+    tax.percentage = '8.875';
+    tax.name = 'Sales Tax';
 
     let order = new SquareConnect.CreateOrderRequest();
     order.idempotency_key = uuidv4();
     order.line_items = lineItems;
+    order.reference_id = req.cookies['jasonandfriends-cart'];
+    order.taxes = [tax];
+    console.log('im here');
+
+    let postBody = {
+      idempotency_key : uuidv4(),
+      order : order,
+      ask_for_shipping_address : true,
+      merchant_support_email : 'jason@jasonandfriends.net',
+      redirect_url : 'http://localhost:3000/utils/payment',
+      pre_populate_shipping_address : address,
+    }
+    if(req.body.address.email) {
+      if (req.body.address.email.toString().includes('@')){
+        postBody.pre_populate_buyer_email = req.body.address.email;
+      }
+    }
 
     fetch(`https://connect.squareup.com/v2/locations/${locationId}/checkouts`,{
     method : 'POST',
     headers : {
       'Authorization' : 'Bearer ' + accessToken,
     },
-    body : JSON.stringify({
-      idempotency_key : uuidv4(),
-      order : order,
-      ask_for_shipping_address : true,
-      merchant_support_email : 'jason@jasonandfriends.net',
-      redirect_url : 'http://localhost:3000/utils/payment',
-    }),
+    body : JSON.stringify(postBody),
     })
     .then(response => response.json())
     .then(response => {
@@ -59,6 +84,7 @@ function processPayment(req, res, next) {
 
   })
   .catch(err => {
+    console.log(err);
     res.header(500).send({
       DatabaseError: "Error finding cart.",
       error: err,

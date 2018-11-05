@@ -11,15 +11,8 @@ const mapDispatchToProps = dispatch => ({
     hideBlowUpImage : () => {
         dispatch(actions.hideBlowUpImage());
     },
-    pullCartFromDB : () => {
-        let uri = 'http://localhost:3000/utils/cart';
-        fetch(uri)
-            .then(response => {
-                return response.json();
-            })
-            .then(json => {
-                dispatch(actions.updateStateCart(json));
-            })
+    updateStateCart : (cart) => {
+        dispatch(actions.updateStateCart(cart));
     }
 });
 
@@ -36,6 +29,16 @@ class BlowUp extends Component {
     this.addProductToCart = this.addProductToCart.bind(this);
   }
 
+    pullCartFromDB() {
+        let uri = '/utils/cart';
+        fetch(uri)
+        .then(response => {
+            return response.json();
+        })
+        .then(json => {
+            this.props.updateStateCart(json);
+        })
+    }
   updateDisplayedPrice(event) {
     this.setState({displayedPrice : event.target.value});
     this.setState({size : event.target.options[event.target.selectedIndex].text});
@@ -51,14 +54,14 @@ class BlowUp extends Component {
         price : this.state.displayedPrice,
         quantity : this.state.quantity,
     }
-    fetch('http://localhost:3000/utils/cart',{
+    fetch('/utils/cart',{
         method: 'POST',
         headers: {
             'Content-Type' : 'application/json',
         },
         body: JSON.stringify(postObj),
     })
-    .then(() => this.props.pullCartFromDB());
+    .then(() => this.pullCartFromDB());
   }
   
   render() {

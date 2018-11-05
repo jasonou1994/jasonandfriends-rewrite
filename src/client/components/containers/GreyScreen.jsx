@@ -25,7 +25,6 @@ class GreyScreen extends Component {
   render() {
 
     let display = (this.props.isDisplayedBlowUp === 'block' || this.props.isDisplayedCart === 'block' || this.props.isDisplayedConfirmation) ? 'block' : 'none';
-    console.log(display);
     const styles = {
       'display' : display,
     }

@@ -28,21 +28,19 @@ class Gallery extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.imageFilterTag != this.props.imageFilterTag){
+    if (this.state.imageFilterTag != this.props.imageFilterTag && this.props.displayedImages){
 
       let leftImages = [];
       let rightImages = [];
       let centerImage;
 
-      if(this.props.displayedImages){
-        this.props.displayedImages.forEach((image, index) => {
-          rightImages.push(<Image imageData={image} key={index}></Image>);
-        })
-        //shuffle...
-        rightImages = this.shuffle(rightImages);
-        leftImages = rightImages.splice(0,rightImages.length/2);
-        centerImage = rightImages.splice(0,1);
-      }
+      this.props.displayedImages.forEach((image, index) => {
+        rightImages.push(<Image imageData={image} key={index}></Image>);
+      })
+      //shuffle...
+      rightImages = this.shuffle(rightImages);
+      leftImages = rightImages.splice(0,rightImages.length/2);
+      centerImage = rightImages.splice(0,1);
 
       this.setState({
         imageFilterTag : this.props.imageFilterTag,
@@ -68,9 +66,7 @@ class Gallery extends Component {
   }
 
   render() {
-    
-    
-
+  
     let marginTop = this.props.screenWidth <= 800 ? this.props.sidebarHeight + this.props.headerHeight : 0;
     const styles = {
       marginTop : marginTop +'px',
