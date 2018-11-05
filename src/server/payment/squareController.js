@@ -57,7 +57,7 @@ function processPayment(req, res, next) {
       order : order,
       ask_for_shipping_address : true,
       merchant_support_email : 'jason@jasonandfriends.net',
-      redirect_url : 'http://localhost:3000/utils/payment',
+      redirect_url : 'http://jasonandfriends.net/utils/payment',
       pre_populate_shipping_address : address,
     }
     if(req.body.address.email) {
