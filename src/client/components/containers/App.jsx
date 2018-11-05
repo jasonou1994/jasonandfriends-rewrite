@@ -26,6 +26,8 @@ const mapDispatchToProps = dispatch => ({
 class App extends Component {
   constructor(props) {
     super(props);
+    this.pullCartFromDB = this.pullCartFromDB.bind(this);
+    this.pullImagesFromDB = this.pullImagesFromDB.bind(this);
   }
 
   componentDidMount() {
