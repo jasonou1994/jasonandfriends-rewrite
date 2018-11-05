@@ -71,4 +71,4 @@ typings/
 dist
 
 #dont include images
-assets
+assets/
