@@ -2,13 +2,8 @@ const cartController = require('../cart/cartController')
 
 const cookieController = {};
 cookieController.setCookie = setCookie;
-/**
-* setCookie - set a cookie with a random number
-*
-* @param req - http.IncomingRequest
-* @param res - http.ServerResponse
-* @param next - Callback with signature ([err])
-*/
+cookieController.resetCookie = resetCookie;
+
 function setCookie(req, res, next) {
   // console.log(req.cookies);
   if(!req.cookies['jasonandfriends-cart']){
@@ -17,8 +12,16 @@ function setCookie(req, res, next) {
 
     cartController.createCart(rand);
   }
-
   
+  next();
+}
+
+function resetCookie(req, res, next) {
+  const rand = Math.floor(Math.random() * 1000000);
+  res.cookie('jasonandfriends-cart', rand, {expire : new Date() + 9999});
+
+  cartController.createCart(rand);
+  console.log('hi');
   next();
 }
 

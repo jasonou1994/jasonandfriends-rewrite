@@ -15,60 +15,71 @@ app.use(function(req, res, next) {
     next();
   });
 
-app.listen(3000, () => {
-    console.log('Express server on 3000');
+app.listen(80, () => {
+    console.log('Express server on 80');
 });
 
-mongoose.connect('mongodb://localhost:27017/jasonandfriends');
+mongoose.connect('mongodb://jason:jasonou1@ds145093.mlab.com:45093/jasonandfriends');
 mongoose.connection.once('open', () => {
-    console.log('Connected to jasonandfriends MongoDB');
+    console.log('Connected to jasonandfriends MLabs MongoDB');
 });
 
 const imageController = require('./images/imageController');
 const cookieController = require('./cookies/cookieController');
 const cartController = require('./cart/cartController')
+const squareController = require('./payment/squareController');
+
 
 //CLIENT ROUTES
 app.get('/', cookieController.setCookie, (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../dist','index.html'))
+    res.sendFile(path.join(__dirname,'../../dist','index.html'))
 });
 
-app.get('/dist/bundle.js', cookieController.setCookie,(req, res, next) => {
+app.get('/bundle.js', (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../dist','bundle.js'));
+    res.sendFile(path.join(__dirname,'../../dist','bundle.js'));
 });
 
-app.get('/dist/styles.css', cookieController.setCookie,(req, res, next) => {
+app.get('/styles.css', (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../dist','styles.css'));
+    res.sendFile(path.join(__dirname,'../../dist','styles.css'));
 });
 
-app.get('/assets/thumbnails/:assetPath', cookieController.setCookie, (req, res, next) => {
+app.get('/assets/thumbnails/:assetPath', (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../assets/thumbnails',req.params.assetPath));
+    res.sendFile(path.join(__dirname,'../../assets/thumbnails',req.params.assetPath));
 });
 
-app.get('/assets/full/:assetPath', cookieController.setCookie, (req, res, next) => {
+app.get('/assets/full/:assetPath', (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../assets/full',req.params.assetPath));
+    res.sendFile(path.join(__dirname,'../../assets/full',req.params.assetPath));
 });
 
-app.get('/assets/icons/:assetPath', cookieController.setCookie, (req, res, next) => {
+app.get('/assets/icons/:assetPath', (req, res, next) => {
     res.header(200);
-    res.sendFile(path.join(__dirname,'../assets/icons',req.params.assetPath));
+    res.sendFile(path.join(__dirname,'../../assets/icons',req.params.assetPath));
 });
 
 //UTIL ROUTES
 app.use('/utils', utilRouter);
 
-utilRouter.post('/', imageController.pushImagesToServer);
+utilRouter.post('/',  imageController.pushImagesToServer);
 utilRouter.get('/', imageController.getAllImages);
 utilRouter.get('/image', imageController.findSpecificImages);
 
 utilRouter.post('/cart', cartController.updateCart);
 utilRouter.get('/cart', cartController.getCart);
 utilRouter.delete('/cart', cartController.deleteFromCart);
+utilRouter.put('/cart', cookieController.resetCookie, (req, res) => {
+    res.send({});
+});
+
+utilRouter.post('/payment', squareController.processPayment);
+utilRouter.get('/payment', squareController.confirmPayment, (req, res) => {
+    res.redirect ('/');
+});
+
 
 
 module.exports = app;

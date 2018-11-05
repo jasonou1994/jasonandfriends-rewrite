@@ -2,16 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Column = ({imageList}) => (
-  <div style={styles}>
+  <div className = 'column' style={styles}>
       {imageList}
   </div>
 );
 
-const styles = {
-    display: 'flex',
-    flexDirection : 'column',
-    width: '50%',
-}
+const styles = {}
 
 Column.propTypes = {
     imageList: PropTypes.array.isRequired,

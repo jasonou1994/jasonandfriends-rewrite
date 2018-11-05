@@ -5,6 +5,7 @@ import * as actions from '../../actions/actions';
 const mapStateToProps = store => ({
   isDisplayedBlowUp : store.state.isDisplayedBlowUp,
   isDisplayedCart : store.state.isDisplayedCart,
+  isDisplayedConfirmation : store.state.isDisplayedConfirmation,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -23,8 +24,7 @@ class GreyScreen extends Component {
 
   render() {
 
-    let display = (this.props.isDisplayedBlowUp === 'block' || this.props.isDisplayedCart === 'block') ? 'block' : 'none';
-    console.log(display);
+    let display = (this.props.isDisplayedBlowUp === 'block' || this.props.isDisplayedCart === 'block' || this.props.isDisplayedConfirmation) ? 'block' : 'none';
     const styles = {
       'display' : display,
     }

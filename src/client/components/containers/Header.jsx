@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 
 const mapStateToProps = store => ({
-  cartProducts : store.state.cartProducts
+  cartProducts : store.state.cartProducts,
+  screenWidth : store.state.screenWidth,
 });
 
 const mapDispatchToProps = dispatch => ({
   showCart : () => {
     dispatch(actions.showCart());
+  },
+  toggleSideBar : () => {
+    dispatch(actions.toggleSideBar());
   }
 });
 
@@ -18,20 +22,25 @@ class Header extends Component {
   }
 
   render() {
+
+    let cartImage = this.props.screenWidth <= 800 ? 'assets/icons/shoppingCartWhite.png' : 'assets/icons/shoppingCartBlack.png'
+
+    let headerTitle = this.props.screenWidth <= 600 ? 'JASON OU' : 'JASONANDFRIENDS';
+
     return(
-      <div style={styles}>
-        <div id='sideBarToggle'>
-          <img src={__dirname + 'assets/icons/menuicon.png'} style={{width: '70px', cursor : 'pointer', background: 'green'}} onClick={this.props.showCart}></img>
+      <div id='header' style={styles} ref={(divElement) => this.divElement=divElement}>
+        <div id='sideBarToggle' style={{position: "absolute", left: '0px'}}>
+          <img src={__dirname + 'assets/icons/menuicon.png'} style={{width: '70px', cursor : 'pointer'}} onClick={this.props.toggleSideBar}></img>
         </div>
       
         <div id='titles'>
-          <h1 style={{marginBottom:'-5px'}}>JASONANDFRIENDS</h1>
+          <h1 style={{marginBottom:'-5px'}}>{headerTitle}</h1>
           <h3 style={{marginBottom: '20px'}}>PORTFOLIO & PHOTOGRAPHY</h3>
         </div>
 
-        <div style={{display : 'flex', justifyContent:'flex-end', alignItems: 'center', width: '25%'}}> 
-          <span style={{fontSize : '30px', fontWeight: 'bold', marginTop : '-23px'}}>{this.props.cartProducts.length}</span>
-          <img src={__dirname + 'assets/icons/shoppingCartBlack.png'} style={{width: '44px', alignSelf : 'center', flex: '0 0 auto', margin : '-24px 5px 0px 5px', cursor : 'pointer'}} onClick={this.props.showCart}></img>
+        <div style={{position: 'absolute', right: '0px', display : 'flex', justifyContent:'flex-end', alignItems: 'center'}}> 
+          <span style={{fontSize : '30px', fontWeight: 'bold', marginTop : '17px'}}>{this.props.cartProducts.length}</span>
+          <img src={cartImage} style={{width: '44px', alignSelf : 'center', flex: '0 0 auto', margin : '17px 15px 0px 5px', cursor : 'pointer'}} onClick={this.props.showCart}></img>
         </div>
       </div>
     )
@@ -39,12 +48,7 @@ class Header extends Component {
 }
 
 const styles = {
-  fontFamily : 'Raleway, Arial, sans-serif',
-  textDecorationStyle : 'solid',
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent : 'space-between',
-  width: '100%',
+  
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

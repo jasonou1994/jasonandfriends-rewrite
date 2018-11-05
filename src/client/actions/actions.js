@@ -1,8 +1,8 @@
 import * as types from './actionTypes'
 
-export const updateStateImages = (displayImages) => ({
+export const updateStateImages = (displayImages, tag) => ({
   type: types.UPDATE_STATE_IMAGES,
-  payload : displayImages
+  payload : {displayImages, tag}
 });
 
 export const updateStateCart = (cartObj) => ({
@@ -26,6 +26,25 @@ export const showCart = () => ({
 export const hideCart = () => ({
   type: types.HIDE_CART,
 });
+
+export const toggleSideBar = () => ({
+  type : types.TOGGLE_SIDE_BAR,
+})
+
+export const screenResize = (screenWidth) => ({
+  type : types.SCREEN_RESIZE,
+  payload : screenWidth
+})
+
+export const updateSideBarHeight = (height) => ({
+  type : types.UPDATE_SIDEBAR_HEIGHT,
+  payload : height
+})
+
+export const hideConfirmation = () => ({
+  type : types.HIDE_CONFIRMATION,
+})
+
 
 
 
