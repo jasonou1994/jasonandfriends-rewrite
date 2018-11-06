@@ -12,8 +12,7 @@ squareController.processPayment = processPayment;
 squareController.confirmPayment = confirmPayment;
 
 function processPayment(req, res, next) {
-  console.log('-----ENTERING squareController.processPayment-----');
-  console.log('body', req.body);
+  console.log('----- squareController.processPayment called. -----');
   Cart.findOne({
     cookieId : req.cookies['jasonandfriends-cart'],
   })
@@ -93,6 +92,7 @@ function processPayment(req, res, next) {
 }
 
 function confirmPayment(req, res, next) {
+  console.log('----- squareController.confirmPayment called. -----');
   let transactionId = req.query.transactionId;
   fetch (`https://connect.squareup.com/v2/locations/${locationId}/transactions/${transactionId}`, {
     headers : {
@@ -105,8 +105,6 @@ function confirmPayment(req, res, next) {
     let amountCharged = response.transaction.tenders[0].amount_money.amount;
     let currency = response.transaction.tenders[0].amount_money.currency;
     let cardStatus = response.transaction.tenders[0].card_details.status;
-
-    console.log(amountCharged, currency, cardStatus);
 
     Cart.findOne({
       cookieId : req.cookies['jasonandfriends-cart'],

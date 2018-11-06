@@ -4,6 +4,7 @@ const fs = require('fs');
 const ImageController = {
 
   pushImagesToServer (req, res, next) {
+    console.log('----- imageController.pushImagesToServer called. -----');
     fs.readFile(__dirname+'/imageDetails.txt','utf8', (err, data) => {
       if(err) {
         console.warn(err);
@@ -62,6 +63,7 @@ const ImageController = {
   },
 
   getAllImages (req, res, next) {
+    console.log('----- imageController.getAllImages called. -----');
     Image.find({})
     .then((response) => {
       res.header(200);
@@ -70,6 +72,7 @@ const ImageController = {
   },
 
   findSpecificImages (req, res, next) {
+    console.log('----- imageController.findSpecificImages called. -----');
     let tag = req.query.tag;
     Image.find({
       tags : tag

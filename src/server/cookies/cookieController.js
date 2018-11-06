@@ -7,6 +7,7 @@ cookieController.resetCookie = resetCookie;
 
 function setCookie(req, res, next) {
   //if no cookie exists...
+  console.log('----- cookieController.setCookie called. -----');
   if(!req.cookies['jasonandfriends-cart']){
     const rand = Math.floor(Math.random() * 1000000);
     res.cookie('jasonandfriends-cart', rand, {expire : new Date() + 9999});
@@ -29,11 +30,11 @@ function setCookie(req, res, next) {
 }
 
 function resetCookie(req, res, next) {
+  console.log('----- cookieController.resetCookie called. -----');
   const rand = Math.floor(Math.random() * 1000000);
   res.cookie('jasonandfriends-cart', rand, {expire : new Date() + 9999});
 
   cartController.createCart(rand);
-  console.log('hi');
   next();
 }
 

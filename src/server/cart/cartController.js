@@ -2,18 +2,18 @@ const Cart = require('./cartModel.js');
 
 const cartController = {
     createCart(cookieId) {
-        console.log('createCart called.');
+        console.log('----- cartController.createCart called. -----');
         Cart.create({
             cookieId : cookieId,
             status : 'initialized',
         },(err, response) => {
-            console.log('response', response);
+            console.log('createCart: ', response);
             console.warn('err', err);
         })
     },
 
     getCart(req, res, next) {
-        console.log('getCart called.');
+        console.log('----- cartController.getCart called. -----');
         Cart.findOne({
             cookieId : req.cookies['jasonandfriends-cart']
         },(err, response) => {
@@ -22,7 +22,7 @@ const cartController = {
                 res.header(500);
                 res.end();
             } else {
-                console.log(response);
+                console.log('getCart: ', response);
                 res.header(200);
                 res.send(response);
             }
@@ -30,7 +30,7 @@ const cartController = {
     },
 
     deleteFromCart (req, res, next) {
-        console.log('deleteCart called.');
+        console.log('----- cartController.deleteCart called. -----');
         Cart.updateOne({
             cookieId : req.cookies['jasonandfriends-cart'],
         },{
@@ -39,11 +39,12 @@ const cartController = {
                 size : req.body.size,
             }}
         },(err, response) => {
-            console.log(response);
+            
             if (err) {
                 res.header(500);
                 res.end();
             } else {
+                console.log('deleteCart: ', response);
                 res.header(202);
                 res.send(response);
             }
@@ -52,6 +53,7 @@ const cartController = {
     
     updateCart(req, res, next) {
         //first try to see if a product with matching name already exists and if so, only update the quantity
+        console.log('----- cartController.updateCart called. -----');
         Cart.updateOne({
             cookieId : req.cookies['jasonandfriends-cart'],
             'products.imageName' : req.body.imageName,
@@ -59,6 +61,7 @@ const cartController = {
         },{
             $inc: {'products.$.quantity': req.body.quantity}
         }, (err, response) => {
+            console.log('updateCart_existingProduct: ', response);
             if(err){
                 res.header(500);
                 res.end();
@@ -83,6 +86,7 @@ const cartController = {
                         res.header(500);
                         res.end();
                     } else {
+                        console.log('updateCart_newProduct: ', response);
                         res.header(202);
                         res.end();
                     }
