@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-const io = require('./websocket')
+const expressip = require('express-ip');
 
 const app = express();
 const path = require('path');
@@ -29,10 +29,11 @@ const imageController = require('./images/imageController');
 const cookieController = require('./cookies/cookieController');
 const cartController = require('./cart/cartController')
 const squareController = require('./payment/squareController');
+const visitController = require('./visits/visitController.js')
 
 
 //CLIENT ROUTES
-app.get('/', cookieController.setCookie, (req, res, next) => {
+app.get('/', cookieController.setCookie, expressip().getIpInfoMiddleware, visitController.handleVisit, (req, res, next) => {
     res.header(200);
     res.sendFile(path.join(__dirname,'../../dist','index.html'))
 });
@@ -81,33 +82,5 @@ utilRouter.get('/payment', squareController.confirmPayment, (req, res) => {
     res.redirect ('/');
 });
 
-//TEST SSE
-app.get('/sse', (req, res, next) => {
-    res.writeHead(200, {
-        'Content-Type': 'text/event-stream',
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive'
-    })
-
-    setTimeout(() => {
-        res.write(
-            'data: hello \n'
-          );
-        res.write('\n\n');
-    }, 3000);
-
-    setTimeout(() => {
-        let respObj = {
-            event : 'testEvent',
-            data : 'hi2',
-        }
-        res.write(JSON.stringify(respObj));
-        res.write('\n\n');
-    }, 6000);
-
-    setTimeout(() => {
-        res.end('bye');
-    }, 9000);
-})
 
 module.exports = app;

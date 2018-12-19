@@ -83,7 +83,7 @@ class Cart extends Component {
   }
   
   render() {
-    console.log(this.state);
+    // console.log(this.state);
 
     const overallStyles = {
       width: this.props.screenWidth <= 600 ? this.props.screenWidth -20 : '350px',
