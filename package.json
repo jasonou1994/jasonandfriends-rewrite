@@ -1,7 +1,7 @@
 {
-  "name": "unit-7-react-redux",
+  "name": "jasonandfriends",
   "version": "1.0.0",
-  "description": "MegaMarket Loyalty Card Tracker ",
+  "description": "jasonandfriends",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -27,6 +27,8 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.3.0",
     "request": "^2.88.0",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
     "square-connect": "^2.20180918.1",
     "thunk": "0.0.1",
     "uuid": "^3.3.2"
